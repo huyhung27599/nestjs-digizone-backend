@@ -1,0 +1,4 @@
+{
+  "port": "2750",
+  "mongoDbUrl": "mongodb+srv://huyhung27599:huyhung275@digizone.lltdq2x.mongodb.net/?retryWrites=true&w=majority"
+}
