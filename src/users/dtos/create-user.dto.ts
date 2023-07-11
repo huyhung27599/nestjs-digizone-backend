@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsIn, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { userTypes } from 'src/schema/users';
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -12,4 +13,15 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
   password: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @IsIn([userTypes.ADMIN, userTypes.CUSTOMER])
+  type: string;
+
+  @IsString()
+  @IsOptional()
+  secretToken?: string;
+
+  isVerified?: boolean;
 }
