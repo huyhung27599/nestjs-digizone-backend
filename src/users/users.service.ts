@@ -5,7 +5,7 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import { UserRepository } from 'src/shared/user.repository';
+import { UserRepository } from 'src/repositories/user.repository';
 import { CreateUserDto } from './dtos/create-user.dto';
 import {
   comparePassword,
@@ -315,6 +315,14 @@ export class UsersService {
           id: user._id.toString(),
         },
       };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async remove(id: string) {
+    try {
+      return await this.userDB.removeById(id);
     } catch (error) {
       throw new BadRequestException(error.message);
     }

@@ -28,4 +28,8 @@ export class UserRepository {
   async findById(id: string) {
     return await this.userModel.findById(id);
   }
+
+  async removeById(id: string) {
+    return await this.userModel.deleteOne({ _id: id });
+  }
 }
