@@ -14,5 +14,20 @@
       "verifyEmail": "verify-email-template",
       "orderSuccess": "order-success"
     }
+  },
+  "cloudinary": {
+    "cloud_name": "hh27599",
+    "api_key": "487786831882688",
+    "api_secret": "5ZNt8VHqK4QxiU79SOlGb2lOHh8",
+    "folderPath": "digizone/products/",
+    "publicId_prefix": "digi_prods_",
+    "bigSize": "400X400"
+  },
+  "stripe": {
+    "publishable_key": "pk_test_51NaJa4FN8aBhc9pBvxbpBpNvNdyraPr3u6emJ1JWRVhPYVMLJG8fwq9bGjFtMP6CpyG5mgja4JKXqcx6ps8UDqqd00VTlGMuld",
+    "secret_key": "sk_test_51NaJa4FN8aBhc9pBFZK4wJcxsDRCf7GPGqzMbgMxBHjGY3fuV4kVDCaPORZBrjB9Vv9OLCPIYuG6PMj5XzaCu6Op00QLf9xrs7",
+    "successUrl": "http://localhost:3000/order-success",
+    "cancelUrl": "http://localhost:3000/order-cancel",
+    "webhookSecret": "whsec_65091664c52548dae5e241f06b7b885826abc096430fc3fcfea6fe567623d859"
   }
 }

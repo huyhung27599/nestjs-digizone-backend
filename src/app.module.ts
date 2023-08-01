@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/products.module';
 import config from 'config';
+import { AllExceptionFilter } from './shared/httpExceptionFilter';
 
 @Module({
   imports: [
@@ -18,6 +19,12 @@ import config from 'config';
     ProductsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: 'APP_FILTER',
+      useClass: AllExceptionFilter,
+    },
+  ],
 })
 export class AppModule {}

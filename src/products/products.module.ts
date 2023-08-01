@@ -15,6 +15,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { RoleGuard } from 'src/shared/guards/role.guard';
 import { AuthMiddleware } from 'src/shared/middlewares/auth';
 import config from 'config';
+import { StripeModule } from 'nestjs-stripe';
 
 @Module({
   providers: [
@@ -29,6 +30,10 @@ import config from 'config';
     ]),
     MongooseModule.forFeature([{ name: License.name, schema: LicenseSchema }]),
     MongooseModule.forFeature([{ name: Users.name, schema: UserSchema }]),
+    StripeModule.forRoot({
+      apiKey: config.get('stripe.secret_key'),
+      apiVersion: '2022-08-01',
+    }),
   ],
 })
 export class ProductsModule implements NestModule {
