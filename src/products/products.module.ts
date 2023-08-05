@@ -16,11 +16,16 @@ import { RoleGuard } from 'src/shared/guards/role.guard';
 import { AuthMiddleware } from 'src/shared/middlewares/auth';
 import config from 'config';
 import { StripeModule } from 'nestjs-stripe';
+import { OrderSchema, Orders } from 'src/schema/orders';
+import { ProductRepository } from 'src/repositories/product.repository';
+import { OrdersRepository } from 'src/repositories/order.repository';
 
 @Module({
   providers: [
     ProductsService,
+    ProductRepository,
     UserRepository,
+    OrdersRepository,
     { provide: APP_GUARD, useClass: RoleGuard },
   ],
   controllers: [ProductsController],
@@ -30,6 +35,7 @@ import { StripeModule } from 'nestjs-stripe';
     ]),
     MongooseModule.forFeature([{ name: License.name, schema: LicenseSchema }]),
     MongooseModule.forFeature([{ name: Users.name, schema: UserSchema }]),
+    MongooseModule.forFeature([{ name: Orders.name, schema: OrderSchema }]),
     StripeModule.forRoot({
       apiKey: config.get('stripe.secret_key'),
       apiVersion: '2022-08-01',

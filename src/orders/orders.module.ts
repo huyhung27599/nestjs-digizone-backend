@@ -10,12 +10,15 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { OrderSchema, Orders } from 'src/schema/orders';
 import { AuthMiddleware } from 'src/shared/middlewares/auth';
 import config from 'config';
+import { UserRepository } from 'src/repositories/user.repository';
+import { UserSchema, Users } from 'src/schema/users';
 
 @Module({
   controllers: [OrdersController],
-  providers: [OrdersService],
+  providers: [OrdersService, UserRepository],
   imports: [
     MongooseModule.forFeature([{ name: Orders.name, schema: OrderSchema }]),
+    MongooseModule.forFeature([{ name: Users.name, schema: UserSchema }]),
   ],
 })
 export class OrdersModule implements NestModule {
