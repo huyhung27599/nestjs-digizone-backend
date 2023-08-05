@@ -5,6 +5,7 @@
   "jwtSecret": "secretHUYHUNG@123",
   "appPrefix": "/api/v1",
   "loginLink": "http://localhost:3000/auth",
+  "fileStoragePath": "../uploads/",
   "emailService": {
     "testDomain": "sandboxe4de527199c94ccfb6d6c08a8081a74c.mailgun.org",
     "privateApiKey": "7d1e83a6248b73895f2e0262ad1c3a60-835621cf-e8afd81f",
